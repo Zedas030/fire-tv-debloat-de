@@ -5,8 +5,9 @@ vorinstallierten Apps und dem HbbTV-Browser befreien, einen werbeblockenden DNS 
 und das Ganze auf Wunsch wieder vollständig rückgängig machen. Kein Root, nichts wird
 gelöscht: die Pakete werden nur für den Benutzer deaktiviert.
 
-Entstanden im Oktober 2026 für einen Fire TV Stick 4K (Fire OS 8). Seitdem startet der
-Stick ohne Werbebanner direkt in einen eigenen Launcher.
+Entstanden im Oktober 2026 für einen Smart-TV mit eingebautem Fire TV (Fire OS 8.1, Android 11).
+Seitdem startet der Fernseher ohne Werbebanner direkt in einen eigenen Launcher. Getestet ist es
+nur auf diesem Gerät. Andere Fire-TV-Geräte haben teils andere Pakete, siehe Fehlerbehebung.
 
 ## Was passiert
 
@@ -24,23 +25,40 @@ installiert.
 
 - Am Fire TV: *Einstellungen → Mein Fire TV → Entwickleroptionen → ADB-Debugging* ein.
 - Am PC: Android Platform Tools (`adb`) im `PATH`, oder Pfad per `-Adb` übergeben.
-- IP-Adresse des Sticks (steht unter *Einstellungen → Mein Fire TV → Info → Netzwerk*).
+- IP-Adresse des Geräts (steht unter *Einstellungen → Mein Fire TV → Info → Netzwerk*).
 
 ## Benutzung
 
 ```powershell
 # Entschlacken (fragt beim ersten Mal am Fernseher nach der ADB-Freigabe)
-powershell -ExecutionPolicy Bypass -File debloat.ps1 -TvIp 192.168.1.50
+powershell -ExecutionPolicy Bypass -File debloat.ps1 -TvIp <tv-ip>
 
 # Ohne DNS-Änderung
-powershell -ExecutionPolicy Bypass -File debloat.ps1 -TvIp 192.168.1.50 -NoDns
+powershell -ExecutionPolicy Bypass -File debloat.ps1 -TvIp <tv-ip> -NoDns
 
 # Alles zurück
-powershell -ExecutionPolicy Bypass -File restore.ps1 -TvIp 192.168.1.50
+powershell -ExecutionPolicy Bypass -File restore.ps1 -TvIp <tv-ip>
 ```
 
 `debloat.ps1` legt `disabled-before.txt` und `disabled-after.txt` neben sich ab, damit man
-sieht, was sich geändert hat. Danach den Stick einmal neu starten.
+sieht, was sich geändert hat. Danach das Gerät einmal neu starten.
+
+## Was erhalten bleibt
+
+Streaming-Apps, App-Store, Einstellungen, Bluetooth-Fernbedienung, Sprachsteuerung und Updates von
+Fire OS laufen normal weiter. Deaktiviert werden nur Werbeflächen, Telemetrie, Demo-Inhalte,
+Tutorials und der HbbTV-Browser. Wer HbbTV-Mediatheken über den roten Knopf braucht, nimmt die
+`com.vewd.*`-Zeilen aus `packages.txt` heraus.
+
+## Fehlerbehebung
+
+| Symptom | Ursache und Lösung |
+|---|---|
+| `unauthorized` bei `adb connect` | Am Fernseher erscheint eine Abfrage „USB-Debugging zulassen?“. Bestätigen, am besten mit „Immer zulassen“, dann erneut starten. |
+| `failed to connect` / Zeitüberschreitung | Fernseher im Standby oder andere IP. Fernseher einschalten, IP unter *Mein Fire TV → Info → Netzwerk* prüfen. |
+| `Unknown package` bei einzelnen Zeilen | Das Paket gibt es auf diesem Modell oder dieser Fire-OS-Version nicht. Harmlos, das Skript macht weiter. |
+| Werbung ist nach einem Update zurück | Fire OS hat Pakete wieder aktiviert. `debloat.ps1` erneut ausführen und `disabled-after.txt` vergleichen. |
+| Home-Taste öffnet wieder den Amazon-Startbildschirm | Home on Fire nach dem Update einmal öffnen, damit es die Taste wieder abfängt. |
 
 ## Gelernt
 

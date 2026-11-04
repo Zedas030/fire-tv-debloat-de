@@ -1,5 +1,5 @@
 # Macht alle Aenderungen von debloat.ps1 rueckgaengig.
-# Aufruf:  powershell -ExecutionPolicy Bypass -File restore.ps1 -TvIp 192.168.1.50
+# Aufruf:  powershell -ExecutionPolicy Bypass -File restore.ps1 -TvIp <tv-ip>
 # Voraussetzung: ADB-Debugging am Fernseher ist eingeschaltet, adb liegt im PATH
 # oder wird ueber -Adb angegeben.
 param(

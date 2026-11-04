@@ -1,5 +1,5 @@
 # Pakete, die debloat.ps1 deaktiviert (pm disable-user) und restore.ps1 wieder einschaltet.
-# Stand: Fire TV Stick 4K, Fire OS 8, Oktober 2026. Nach einem Fire-OS-Update pruefen.
+# Stand: Smart-TV mit eingebautem Fire TV, Fire OS 8.1 (Android 11), Oktober 2026. Nach einem Fire-OS-Update pruefen.
 
 # Werbung, Shopping, Inhaltserkennung (ACR)
 com.amazon.tv.acr

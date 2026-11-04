@@ -1,6 +1,6 @@
 # Entschlackt einen Fire TV (Werbung, Telemetrie, vorinstallierte Apps, HbbTV)
 # und setzt einen werbeblockenden DNS. Alles ist mit restore.ps1 umkehrbar.
-# Aufruf:  powershell -ExecutionPolicy Bypass -File debloat.ps1 -TvIp 192.168.1.50 [-Dns dns.adguard-dns.com]
+# Aufruf:  powershell -ExecutionPolicy Bypass -File debloat.ps1 -TvIp <tv-ip> [-Dns dns.adguard-dns.com]
 # Voraussetzung: ADB-Debugging am Fernseher ist eingeschaltet, adb liegt im PATH
 # oder wird ueber -Adb angegeben.
 param(
