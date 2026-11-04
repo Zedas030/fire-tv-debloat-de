@@ -1,0 +1,38 @@
+# Pakete, die debloat.ps1 deaktiviert (pm disable-user) und restore.ps1 wieder einschaltet.
+# Stand: Fire TV Stick 4K, Fire OS 8, Oktober 2026. Nach einem Fire-OS-Update pruefen.
+
+# Werbung, Shopping, Inhaltserkennung (ACR)
+com.amazon.tv.acr
+com.amazon.hybridadidservice
+com.amazon.sneakpeek
+com.amazon.shoptv.client
+com.amazon.media.recommendations
+com.amazon.kso.blackbird
+
+# Telemetrie
+com.amazon.device.telemetry.emitter
+com.amazon.wirelessmetrics.service
+com.amazon.perfcollection
+com.amazon.perfc
+com.amazon.dp.logger
+com.amazon.client.metrics.api
+
+# Vorinstallierte Apps und Tutorials
+com.amazon.minitv.android.app
+com.amazon.gamehub
+com.amazon.tv.democontent.provider
+com.amazon.storm.lightning.tutorial
+com.amazon.tmm.tutorial
+com.amazon.tv.earlyaccess
+com.amazon.hedwig
+com.amazon.tahoe
+com.amazon.bueller.music
+com.amazon.bueller.photos
+com.amazon.spiderpork
+
+# HbbTV-Browser (roter Knopf bei Antenne/Kabel)
+com.vewd.core.service
+com.vewd.core.tis
+com.vewd.core.tvapp
+com.vewd.core.opapp
+com.vewd.core.fvpplayer
