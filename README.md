@@ -60,6 +60,18 @@ Tutorials und der HbbTV-Browser. Wer HbbTV-Mediatheken über den roten Knopf bra
 | Werbung ist nach einem Update zurück | Fire OS hat Pakete wieder aktiviert. `debloat.ps1` erneut ausführen und `disabled-after.txt` vergleichen. |
 | Home-Taste öffnet wieder den Amazon-Startbildschirm | Home on Fire nach dem Update einmal öffnen, damit es die Taste wieder abfängt. |
 
+## Zugangsdaten und eigene Werte
+
+Die Skripte brauchen keine Zugangsdaten. Die Freigabe erteilt man einmal am Fernseher, wenn ADB sich zum
+ersten Mal verbindet. Die IP-Adresse des eigenen Geräts ist im Repo ein Platzhalter:
+
+| Was | Im Repo | Wo der eigene Wert hingehört |
+|---|---|---|
+| IP-Adresse des Fire TV | `<tv-ip>` | Parameter `-TvIp` beim Aufruf von `debloat.ps1` und `restore.ps1` |
+| werbeblockender DNS | Standard `dns.adguard-dns.com` | Parameter `-Dns`, oder `-NoDns`, um nichts zu ändern |
+| Pfad zu `adb` | Standard `adb` aus dem `PATH` | Parameter `-Adb` |
+| Paketliste | [`packages.txt`](packages.txt) | Zeilen entfernen, die man behalten will, etwa `com.vewd.*` für HbbTV |
+
 ## Gelernt
 
 - `pm disable-user` reicht. Deinstallieren (`pm uninstall -k --user 0`) macht Updates
