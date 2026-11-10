@@ -1,4 +1,10 @@
-# Fire TV entschlacken
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="Fire TV entschlacken" width="100%">
+</p>
+
+<p align="center">
+  <a href="#was-passiert">Was passiert</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#benutzung">Benutzung</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#fehlerbehebung">Fehlerbehebung</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Zedas030/fire-tv-debloat">English</a>
+</p>
 
 Zwei PowerShell-Skripte, die einen Amazon Fire TV per ADB von Werbung, Telemetrie,
 vorinstallierten Apps und dem HbbTV-Browser befreien, einen werbeblockenden DNS setzen
